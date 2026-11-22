@@ -50,7 +50,9 @@ def main(argv: list[str] | None = None) -> int:
     ctx = build_context(settings)
 
     if args.cmd == "init":
-        password = getpass.getpass("Password for the super admin: ")
+        import os
+
+        password = os.environ.get("IDPATENT_ADMIN_PASSWORD") or getpass.getpass("Password for the super admin: ")
         with ctx.sessions() as session:
             actor = Actor.system("cli:init")
             if not settings.production:
