@@ -1,0 +1,19 @@
+Status change for Indonesian patent {{ patents[0].number }}
+---
+Dear {{ recipient_name or "Sir/Madam" }},
+
+We have recorded a status change for the following Indonesian patent(s) held by {{ owner_name }}:
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+  - Current status: {{ p.status_label }}
+{% if p.annuity_due %}
+  - Next annuity ({{ p.annuity_years }}): due {{ p.annuity_due }}, grace period until {{ p.grace_end }}
+{% endif %}
+{% endfor %}
+
+This information is based on {{ data_source_text }} data as of {{ as_of_text }}; please confirm against the official DGIP record or with your Indonesian patent agent.
+
+Kind regards,
+{{ sender.legal_name }}

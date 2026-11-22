@@ -1,0 +1,28 @@
+Working Statement reminder for Indonesian patent {{ patents[0].number }} - due {{ patents[0].ws_due }}
+---
+Dear {{ recipient_name or "Sir/Madam" }},
+
+Under Law No. 65 of 2024 (the third amendment to Law No. 13 of 2016 on Patents), patent holders must file an annual statement declaring whether the invention is being worked in Indonesia (for example manufactured, imported or licensed), or the reasons it is not.
+
+The following patent(s) held by {{ owner_name }} are subject to this obligation:
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+  - Period {{ p.ws_period }}: due {{ p.ws_due }}
+{% if p.annuity_due %}
+  - Next annuity ({{ p.annuity_years }}): due {{ p.annuity_due }}
+{% endif %}
+{% endfor %}
+
+The implementing regulations on the form of the statement may still change. These dates were calculated from {{ data_source_text }} data as of {{ as_of_text }}; please confirm with your Indonesian patent agent.
+{% if services %}
+
+We can assist with:
+{% for s in services %}
+  - {{ s }}
+{% endfor %}
+{% endif %}
+
+Kind regards,
+{{ sender.legal_name }}

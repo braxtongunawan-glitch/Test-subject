@@ -1,0 +1,30 @@
+Layanan pengelolaan paten Indonesia untuk {{ owner_name }}
+---
+Yth. {{ recipient_name or "Bapak/Ibu" }},
+
+Kami menghubungi Anda terkait paten Indonesia atas nama {{ owner_name }} yang memiliki kewajiban dalam waktu dekat:
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+{% if p.annuity_due %}
+  - Biaya tahunan {{ p.annuity_years }}: jatuh tempo {{ p.annuity_due }}
+{% endif %}
+{% if p.ws_due %}
+  - Pernyataan pelaksanaan paten periode {{ p.ws_period }}: jatuh tempo {{ p.ws_due }}
+{% endif %}
+{% endfor %}
+{% if services %}
+
+Layanan kami meliputi:
+{% for s in services %}
+  - {{ s }}
+{% endfor %}
+{% endif %}
+
+Apabila Anda tertarik, silakan balas email ini. Jika tidak, Anda tidak perlu melakukan apa pun; Anda juga dapat berhenti menerima email seperti ini melalui tautan di bawah.
+
+Tanggal di atas dihitung berdasarkan data {{ data_source_text }} per {{ as_of_text }}.
+
+Hormat kami,
+{{ sender.legal_name }}

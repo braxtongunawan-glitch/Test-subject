@@ -1,0 +1,30 @@
+Annuity reminder for Indonesian patent {{ patents[0].number }}{% if patents|length > 1 %} and {{ patents|length - 1 }} other patent(s){% endif %} - due {{ patents[0].annuity_due }}
+---
+Dear {{ recipient_name or "Sir/Madam" }},
+
+The annual fees (annuities) for the following Indonesian patent(s) held by {{ owner_name }} are approaching their due date:
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+  - Annuity {{ p.annuity_years }}: due {{ p.annuity_due }}
+  - Grace period with {{ p.surcharge_percent }}% surcharge: until {{ p.grace_end }}
+{% if p.ws_due %}
+  - Working Statement for period {{ p.ws_period }}: due {{ p.ws_due }}
+{% endif %}
+  - Protection ends: {{ p.protection_end }}
+{% endfor %}
+
+If the annuity is not paid by the end of the grace period, the patent may be declared lapsed under Indonesian law.
+{% if services %}
+
+We can assist with:
+{% for s in services %}
+  - {{ s }}
+{% endfor %}
+{% endif %}
+
+These dates were calculated from {{ data_source_text }} data as of {{ as_of_text }} and are provided for information. Please confirm against the official DGIP record or with your Indonesian patent agent.
+
+Kind regards,
+{{ sender.legal_name }}

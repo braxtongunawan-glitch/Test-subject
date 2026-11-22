@@ -1,0 +1,24 @@
+Pemberitahuan: pelindungan paten {{ patents[0].number }} berakhir {{ patents[0].protection_end }}
+---
+Yth. {{ recipient_name or "Bapak/Ibu" }},
+
+Kami sampaikan bahwa masa pelindungan paten Indonesia atas nama {{ owner_name }} berikut akan berakhir. Masa pelindungan paten tidak dapat diperpanjang.
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+  - Tanggal penerimaan: {{ p.filing_date }}
+  - Pelindungan berakhir: {{ p.protection_end }}
+{% endfor %}
+
+Tanggal di atas dihitung berdasarkan data {{ data_source_text }} per {{ as_of_text }}; mohon konfirmasi dengan catatan resmi DJKI atau konsultan HKI Anda.
+{% if services %}
+
+Kami dapat membantu Anda dengan:
+{% for s in services %}
+  - {{ s }}
+{% endfor %}
+{% endif %}
+
+Hormat kami,
+{{ sender.legal_name }}

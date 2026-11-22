@@ -1,0 +1,30 @@
+Pengingat biaya tahunan paten {{ patents[0].number }}{% if patents|length > 1 %} dan {{ patents|length - 1 }} paten lainnya{% endif %} - jatuh tempo {{ patents[0].annuity_due }}
+---
+Yth. {{ recipient_name or "Bapak/Ibu" }},
+
+Bersama ini kami sampaikan bahwa biaya tahunan untuk paten Indonesia atas nama {{ owner_name }} berikut akan jatuh tempo:
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+  - Biaya tahunan {{ p.annuity_years }}: jatuh tempo {{ p.annuity_due }}
+  - Masa tenggang dengan denda {{ p.surcharge_percent }}%: sampai {{ p.grace_end }}
+{% if p.ws_due %}
+  - Pernyataan pelaksanaan paten periode {{ p.ws_period }}: jatuh tempo {{ p.ws_due }}
+{% endif %}
+  - Pelindungan berakhir: {{ p.protection_end }}
+{% endfor %}
+
+Apabila biaya tahunan tidak dibayar sampai dengan berakhirnya masa tenggang, paten dapat dinyatakan dihapus.
+{% if services %}
+
+Kami dapat membantu Anda dengan:
+{% for s in services %}
+  - {{ s }}
+{% endfor %}
+{% endif %}
+
+Tanggal di atas dihitung berdasarkan data {{ data_source_text }} per {{ as_of_text }} dan bersifat informatif. Mohon konfirmasi dengan catatan resmi DJKI atau konsultan HKI Anda.
+
+Hormat kami,
+{{ sender.legal_name }}

@@ -1,0 +1,28 @@
+Pengingat pernyataan pelaksanaan paten {{ patents[0].number }} - jatuh tempo {{ patents[0].ws_due }}
+---
+Yth. {{ recipient_name or "Bapak/Ibu" }},
+
+Berdasarkan UU No. 65 Tahun 2024 tentang Perubahan Ketiga atas UU No. 13 Tahun 2016 tentang Paten, pemegang paten wajib menyampaikan pernyataan pelaksanaan paten setiap tahun, yang menyatakan apakah invensi dilaksanakan di Indonesia (misalnya diproduksi, diimpor, atau dilisensikan) atau alasan belum dilaksanakan.
+
+Paten atas nama {{ owner_name }} berikut memiliki kewajiban tersebut:
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+  - Periode {{ p.ws_period }}: jatuh tempo {{ p.ws_due }}
+{% if p.annuity_due %}
+  - Biaya tahunan berikutnya ({{ p.annuity_years }}): jatuh tempo {{ p.annuity_due }}
+{% endif %}
+{% endfor %}
+
+Ketentuan pelaksana mengenai bentuk pernyataan masih dapat berubah. Tanggal di atas dihitung berdasarkan data {{ data_source_text }} per {{ as_of_text }}; mohon konfirmasi dengan konsultan HKI Anda.
+{% if services %}
+
+Kami dapat membantu Anda dengan:
+{% for s in services %}
+  - {{ s }}
+{% endfor %}
+{% endif %}
+
+Hormat kami,
+{{ sender.legal_name }}

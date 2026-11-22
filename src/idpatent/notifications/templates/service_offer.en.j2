@@ -1,0 +1,30 @@
+Indonesian patent management services for {{ owner_name }}
+---
+Dear {{ recipient_name or "Sir/Madam" }},
+
+We are contacting you about Indonesian patent(s) held by {{ owner_name }} that have obligations coming up:
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+{% if p.annuity_due %}
+  - Annuity {{ p.annuity_years }}: due {{ p.annuity_due }}
+{% endif %}
+{% if p.ws_due %}
+  - Working Statement for period {{ p.ws_period }}: due {{ p.ws_due }}
+{% endif %}
+{% endfor %}
+{% if services %}
+
+Our services include:
+{% for s in services %}
+  - {{ s }}
+{% endfor %}
+{% endif %}
+
+If this is of interest, simply reply to this e-mail. Otherwise no action is needed, and you can stop receiving e-mails like this using the link below.
+
+These dates were calculated from {{ data_source_text }} data as of {{ as_of_text }}.
+
+Kind regards,
+{{ sender.legal_name }}

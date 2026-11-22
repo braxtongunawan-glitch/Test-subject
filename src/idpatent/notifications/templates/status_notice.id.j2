@@ -1,0 +1,19 @@
+Pemberitahuan perubahan status paten {{ patents[0].number }}
+---
+Yth. {{ recipient_name or "Bapak/Ibu" }},
+
+Kami mencatat perubahan status pada paten Indonesia atas nama {{ owner_name }} berikut:
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+  - Status saat ini: {{ p.status_label }}
+{% if p.annuity_due %}
+  - Biaya tahunan berikutnya ({{ p.annuity_years }}): jatuh tempo {{ p.annuity_due }}, masa tenggang sampai {{ p.grace_end }}
+{% endif %}
+{% endfor %}
+
+Informasi ini berdasarkan data {{ data_source_text }} per {{ as_of_text }}; mohon konfirmasi dengan catatan resmi DJKI atau konsultan HKI Anda.
+
+Hormat kami,
+{{ sender.legal_name }}

@@ -1,0 +1,24 @@
+Notice: protection of Indonesian patent {{ patents[0].number }} ends {{ patents[0].protection_end }}
+---
+Dear {{ recipient_name or "Sir/Madam" }},
+
+The term of protection of the following Indonesian patent(s) held by {{ owner_name }} is coming to an end. Indonesian patent terms cannot be extended.
+{% for p in patents %}
+
+* {{ p.number }} ({{ p.type_label }}){% if p.title %} - {{ p.title }}{% endif %}
+
+  - Filing date: {{ p.filing_date }}
+  - Protection ends: {{ p.protection_end }}
+{% endfor %}
+
+These dates were calculated from {{ data_source_text }} data as of {{ as_of_text }}; please confirm against the official DGIP record or with your Indonesian patent agent.
+{% if services %}
+
+We can assist with:
+{% for s in services %}
+  - {{ s }}
+{% endfor %}
+{% endif %}
+
+Kind regards,
+{{ sender.legal_name }}
