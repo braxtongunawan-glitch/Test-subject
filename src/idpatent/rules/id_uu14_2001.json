@@ -1,0 +1,28 @@
+{
+  "id": "ID-UU14-2001",
+  "title": {
+    "id": "UU No. 14 Tahun 2001 tentang Paten (jangka waktu pelindungan saja)",
+    "en": "Law No. 14 of 2001 on Patents (protection term only)"
+  },
+  "effective_from": "2001-08-01",
+  "legal_basis": ["UU No. 14 Tahun 2001 tentang Paten"],
+  "verification": {
+    "status": "UNVERIFIED",
+    "reviewed_by": null,
+    "reviewed_on": null,
+    "note": "Only the protection term is modelled (20 years Paten, 10 years Paten Sederhana from the filing date). Annuity timing under this law is not modelled: installments that fall in this era are approximated with the earliest later rule set and flagged. Law 13/2016 transitional provisions applied the new annuity regime to existing patents."
+  },
+  "term_end_convention": "ANNIVERSARY",
+  "terms": {
+    "PATEN": {"years": 20, "citation": "UU 14/2001 Pasal 8 ayat (1)"},
+    "PATEN_SEDERHANA": {"years": 10, "citation": "UU 14/2001 Pasal 9"}
+  },
+  "annuity": null,
+  "working_statement": {
+    "enabled": false,
+    "mode": "CALENDAR_YEAR_END",
+    "applies_from_year": null,
+    "citation": null,
+    "note": null
+  }
+}

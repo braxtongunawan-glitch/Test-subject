@@ -1,0 +1,36 @@
+{
+  "id": "ID-UU13-2016",
+  "title": {
+    "id": "UU No. 13 Tahun 2016 tentang Paten (sebelum perubahan UU No. 65 Tahun 2024)",
+    "en": "Law No. 13 of 2016 on Patents (before the Law No. 65 of 2024 amendment)"
+  },
+  "effective_from": "2016-08-26",
+  "legal_basis": ["UU No. 13 Tahun 2016 tentang Paten"],
+  "verification": {
+    "status": "UNVERIFIED",
+    "reviewed_by": null,
+    "reviewed_on": null,
+    "note": "Rule values compiled from secondary commentary. Must be confirmed against the official text by Indonesian counsel before production use. Late-payment grace under this regime was described as up to 12 months on request with a 100% surcharge; sources differ."
+  },
+  "term_end_convention": "ANNIVERSARY",
+  "terms": {
+    "PATEN": {"years": 20, "citation": "UU 13/2016 Pasal 22 ayat (1)"},
+    "PATEN_SEDERHANA": {"years": 10, "citation": "UU 13/2016 Pasal 23 ayat (1)"}
+  },
+  "annuity": {
+    "first_payment_months_after_grant": 6,
+    "first_payment_extra_years_after_grant_year": 1,
+    "subsequent_months_before_anniversary": 1,
+    "grace_months": 12,
+    "grace_surcharge_percent": 100,
+    "grace_requires_request": true,
+    "citation": "UU 13/2016 Pasal 126"
+  },
+  "working_statement": {
+    "enabled": false,
+    "mode": "CALENDAR_YEAR_END",
+    "applies_from_year": null,
+    "citation": null,
+    "note": "No annual Working Statement obligation modelled before Law No. 65/2024."
+  }
+}

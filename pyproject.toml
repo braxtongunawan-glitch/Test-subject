@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "idpatent"
+version = "0.1.0"
+description = "Indonesian patent expiry, annuity and Working Statement tracking with UU PDP-aware client correspondence"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115,<0.116",
+    "sqlalchemy>=2.0.36,<2.1",
+    "pydantic>=2.10,<3",
+    "jinja2>=3.1.5,<4",
+    "cryptography>=44,<45",
+    "openpyxl>=3.1.5,<4",
+    "python-multipart>=0.0.20",
+    "httpx>=0.28,<0.29",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "uvicorn>=0.34"]
+
+[project.scripts]
+idpatent = "idpatent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+idpatent = ["rules/*.json", "notifications/templates/*.j2", "agreements/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

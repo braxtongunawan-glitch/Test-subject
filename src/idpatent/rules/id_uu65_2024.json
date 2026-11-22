@@ -1,0 +1,39 @@
+{
+  "id": "ID-UU65-2024",
+  "title": {
+    "id": "UU No. 13 Tahun 2016 tentang Paten sebagaimana diubah terakhir dengan UU No. 65 Tahun 2024",
+    "en": "Law No. 13 of 2016 on Patents as last amended by Law No. 65 of 2024"
+  },
+  "effective_from": "2024-10-28",
+  "legal_basis": [
+    "UU No. 13 Tahun 2016 tentang Paten",
+    "UU No. 65 Tahun 2024 tentang Perubahan Ketiga atas UU No. 13 Tahun 2016 tentang Paten"
+  ],
+  "verification": {
+    "status": "UNVERIFIED",
+    "reviewed_by": null,
+    "reviewed_on": null,
+    "note": "Compiled from practitioner commentary (Rouse, Tilleke & Gibbins, Am Badar, Swanapada). One published translation describes a 12-month request-based grace period instead of an automatic 6-month period. The Working Statement deadline is reported as the end of each calendar year; the implementing regulation had not been issued. Confirm against the official text with Indonesian counsel."
+  },
+  "term_end_convention": "ANNIVERSARY",
+  "terms": {
+    "PATEN": {"years": 20, "citation": "UU 13/2016 Pasal 22 ayat (1)"},
+    "PATEN_SEDERHANA": {"years": 10, "citation": "UU 13/2016 Pasal 23 ayat (1)"}
+  },
+  "annuity": {
+    "first_payment_months_after_grant": 6,
+    "first_payment_extra_years_after_grant_year": 1,
+    "subsequent_months_before_anniversary": 1,
+    "grace_months": 6,
+    "grace_surcharge_percent": 100,
+    "grace_requires_request": false,
+    "citation": "UU 13/2016 Pasal 126 sebagaimana diubah UU 65/2024"
+  },
+  "working_statement": {
+    "enabled": true,
+    "mode": "CALENDAR_YEAR_END",
+    "applies_from_year": 2024,
+    "citation": "UU 65/2024 - pernyataan pelaksanaan Paten (SRS merujuk Pasal 20A; verifikasi nomor pasal)",
+    "note": "Reported as due by the end of each year. The SRS describes it as due with the annuity cycle; switch mode to WITH_ANNUITY if counsel confirms that reading. Consequences of non-submission and the form of the statement await an implementing regulation."
+  }
+}

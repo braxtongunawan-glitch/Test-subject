@@ -1,0 +1,8 @@
+{
+  "expiry_months": [18, 12, 6, 3, 1],
+  "annuity_days": [90, 60, 30, 14, 7],
+  "grace_end_days": [90, 30, 14, 7],
+  "working_statement_days": [60, 30, 14, 7],
+  "critical_within_days": 30,
+  "warning_within_days": 90
+}
